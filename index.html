@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saslo'Spa & Beauty Studio | Pimville, Soweto</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        spa: {
+                            cream: '#FDFBF7',
+                            champagne: '#F3EFEA',
+                            gold: '#C5A880',
+                            'gold-dark': '#A3875F',
+                            beige: '#E8E2D5',
+                            brown: '#4A3B32',
+                            charcoal: '#221E1B'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-spa-cream text-spa-charcoal font-sans antialiased selection:bg-spa-gold selection:text-white">
+
+    <!-- Top Bar -->
+    <div class="bg-spa-brown text-spa-champagne text-xs py-2 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-4">
+                <span><i class="fas fa-map-marker-alt text-spa-gold mr-1"></i> Golfcourse View Crescent, Pimville Zone 5, Soweto</span>
+                <span class="hidden md:inline"><i class="fas fa-clock text-spa-gold mr-1"></i> Tue-Sat: 09:00-17:00 | Sun: 09:00-15:00 | Mon: Closed</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="tel:+27677200502" class="hover:text-spa-gold transition"><i class="fas fa-phone-alt text-spa-gold mr-1"></i> +27 67 720 0502</a>
+                <button onclick="switchView('admin')" class="bg-spa-gold/20 hover:bg-spa-gold text-white px-2 py-0.5 rounded text-[11px] transition">Admin Portal</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-spa-cream/95 backdrop-blur-md border-b border-spa-beige/60 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" onclick="switchView('home')" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-spa-brown flex items-center justify-center text-spa-gold font-serif font-bold text-xl">S</div>
+                <div>
+                    <span class="font-serif font-bold text-xl tracking-wide text-spa-brown">Saslo'Spa</span>
+                    <span class="block text-[10px] uppercase tracking-widest text-spa-gold font-semibold">Beauty Studio</span>
+                </div>
+            </a>
+            <div class="hidden md:flex items-center gap-8 font-medium text-sm">
+                <a href="#" onclick="switchView('home')" class="nav-link text-spa-brown hover:text-spa-gold transition">Home</a>
+                <a href="#" onclick="switchView('services')" class="nav-link text-spa-brown hover:text-spa-gold transition">Services & Treatments</a>
+                <a href="#" onclick="switchView('lookup')" class="nav-link text-spa-brown hover:text-spa-gold transition">My Bookings</a>
+                <a href="#contact" onclick="switchView('home')" class="nav-link text-spa-brown hover:text-spa-gold transition">Contact</a>
+            </div>
+            <div>
+                <button onclick="switchView('booking')" class="bg-spa-brown hover:bg-spa-gold-dark text-white px-5 py-2.5 rounded-full text-sm font-medium transition shadow-md flex items-center gap-2">
+                    <i class="fas fa-calendar-check text-spa-gold"></i> Book Appointment
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div id="app-container">
+        <!-- Injected via JavaScript Views -->
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/27677200502?text=Good%20day%2C%20Saslo'Spa.%20I%20would%20like%20to%20enquire%20about%20booking%20a%20treatment." target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-lg hover:scale-110 transition duration-300" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-spa-brown text-spa-champagne pt-16 pb-12 border-t border-spa-beige/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-8 h-8 rounded-full bg-spa-gold flex items-center justify-center text-spa-brown font-serif font-bold">S</div>
+                    <span class="font-serif font-bold text-lg text-white">Saslo'Spa & Beauty Studio</span>
+                </div>
+                <p class="text-sm text-spa-champagne/80 mb-4 leading-relaxed">Your moment of beauty and space to unwind in Pimville, Soweto. Experience professional self-care in a tranquil boutique atmosphere.</p>
+                <div class="flex gap-3 text-lg">
+                    <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-spa-gold hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-spa-gold hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/27677200502" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-spa-gold hover:text-white transition"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-serif text-white font-semibold mb-4 text-base tracking-wide border-b border-white/10 pb-2">Quick Links</h4>
+                <ul class="space-y-2.5 text-sm">
+                    <li><a href="#" onclick="switchView('home')" class="hover:text-spa-gold transition">Home</a></li>
+                    <li><a href="#" onclick="switchView('services')" class="hover:text-spa-gold transition">Treatments & Pricing</a></li>
+                    <li><a href="#" onclick="switchView('booking')" class="hover:text-spa-gold transition">Book Appointment</a></li>
+                    <li><a href="#" onclick="switchView('lookup')" class="hover:text-spa-gold transition">Manage Booking</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-serif text-white font-semibold mb-4 text-base tracking-wide border-b border-white/10 pb-2">Operating Hours</h4>
+                <ul class="space-y-2 text-sm text-spa-champagne/90">
+                    <li class="flex justify-between"><span>Monday:</span> <span class="text-spa-gold">Closed</span></li>
+                    <li class="flex justify-between"><span>Tuesday - Friday:</span> <span>09:00 - 17:00</span></li>
+                    <li class="flex justify-between"><span>Saturday:</span> <span>09:00 - 17:00</span></li>
+                    <li class="flex justify-between"><span>Sunday:</span> <span>09:00 - 15:00</span></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-serif text-white font-semibold mb-4 text-base tracking-wide border-b border-white/10 pb-2">Contact Us</h4>
+                <ul class="space-y-3 text-sm text-spa-champagne/90">
+                    <li class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-spa-gold mt-1"></i> <span>Golfcourse View Crescent, Pimville Zone 5, Soweto, 1809</span></li>
+                    <li class="flex items-center gap-3"><i class="fas fa-phone-alt text-spa-gold"></i> <span>+27 67 720 0502</span></li>
+                    <li class="flex items-center gap-3"><i class="fas fa-envelope text-spa-gold"></i> <span>info@saslospa.com</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-white/10 pt-6 text-center text-xs text-spa-champagne/60">
+            <p>&copy; 2026 Saslo'Spa & Beauty Studio. All rights reserved. Designed for excellence in Soweto.</p>
+        </div>
+    </footer>
+
+    <!-- Application State & Script Logic -->
+    <script>
+        // Default Seed Data
+        const DEFAULT_SERVICES = [
+            { id: 'srv-1', name: 'Signature Full Body Scrub', category: 'Body Scrub', description: 'Exfoliating body treatment using natural botanicals to remove dead skin cells and restore radiance.', durationMin: 60, priceZAR: 450, imageUrl: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80' },
+            { id: 'srv-2', name: 'Rejuvenating Clay Body Wrap', category: 'Body Wrap', description: 'Detoxifying mineral clay wrap designed to nourish skin and ease muscle tension.', durationMin: 75, priceZAR: 600, imageUrl: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=600&q=80' },
+            { id: 'srv-3', name: 'Infrared Sauna Session', category: 'Infrared Sauna', description: 'Deep tissue sweat therapy promoting deep relaxation, toxin elimination, and circulation.', durationMin: 45, priceZAR: 350, imageUrl: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=600&q=80' },
+            { id: 'srv-4', name: 'Traditional Sauna Detox', category: 'Sauna', description: 'Classic heat therapy to clear pores, relieve stress, and soothe tired muscles.', durationMin: 45, priceZAR: 300, imageUrl: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=600&q=80' },
+            { id: 'srv-5', name: 'Ultimate Spa Pamper Package', category: 'Spa Treatments', description: 'Comprehensive relaxation package including full body scrub, sauna session, and back massage.', durationMin: 120, priceZAR: 1100, imageUrl: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=600&q=80' }
+        ];
+
+        // Initialize LocalStorage if empty
+        if (!localStorage.getItem('saslo_services')) {
+            localStorage.setItem('saslo_services', JSON.stringify(DEFAULT_SERVICES));
+        }
+        if (!localStorage.getItem('saslo_bookings')) {
+            localStorage.setItem('saslo_bookings', JSON.stringify([
+                { id: 'b-101', reference: 'SASLO-2026-8841', customerName: 'Thabo Mokoena', customerPhone: '0821234567', customerEmail: 'thabo@example.com', serviceId: 'srv-1', serviceName: 'Signature Full Body Scrub', bookingDate: '2026-10-25', startTime: '10:00', endTime: '11:00', totalAmountZAR: 450, status: 'CONFIRMED', accessToken: 'token-abc-123' },
+                { id: 'b-102', reference: 'SASLO-2026-9923', customerName: 'Nomvula Dlamini', customerPhone: '0739876543', customerEmail: 'nomvula@example.com', serviceId: 'srv-3', serviceName: 'Infrared Sauna Session', bookingDate: '2026-10-26', startTime: '14:00', endTime: '14:45', totalAmountZAR: 350, status: 'PENDING', accessToken: 'token-xyz-789' }
+            ]));
+        }
+
+        // Active View State
+        let currentView = 'home';
+        let bookingState = { serviceId: '', date: '', time: '', name: '', phone: '', email: '', notes: '' };
+
+        function getServices() { return JSON.parse(localStorage.getItem('saslo_services')); }
+        function getBookings() { return JSON.parse(localStorage.getItem('saslo_bookings')); }
+
+        function switchView(view) {
+            currentView = view;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            render();
+        }
+
+        function render() {
+            const container = document.getElementById('app-container');
+            if (currentView === 'home') container.innerHTML = renderHome();
+            else if (currentView === 'services') container.innerHTML = renderServicesPage();
+            else if (currentView === 'booking') container.innerHTML = renderBookingWizard();
+            else if (currentView === 'lookup') container.innerHTML = renderLookupPage();
+            else if (currentView === 'admin') container.innerHTML = renderAdminPortal();
+        }
+
+        // 1. HOME PAGE
+        function renderHome() {
+            const services = getServices().slice(0, 3);
+            return `
+                <!-- Hero Section -->
+                <header class="relative bg-spa-brown text-white py-24 md:py-32 overflow-hidden">
+                    <div class="absolute inset-0 opacity-40 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1600&q=80');"></div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-spa-brown via-spa-brown/80 to-transparent"></div>
+                    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="max-w-2xl">
+                            <span class="text-spa-gold font-semibold uppercase tracking-widest text-xs mb-3 block">Pimville, Soweto Boutique Spa</span>
+                            <h1 class="font-serif text-4xl sm:text-6xl font-bold mb-6 leading-tight">Your Moment of Beauty. Your Space to Unwind.</h1>
+                            <p class="text-lg text-spa-champagne/90 mb-8 leading-relaxed">Discover a more relaxing approach to beauty and self-care at Saslo'Spa & Beauty Studio in Pimville, Soweto.</p>
+                            <div class="flex flex-wrap gap-4">
+                                <button onclick="switchView('booking')" class="bg-spa-gold hover:bg-spa-gold-dark text-white px-8 py-3.5 rounded-full font-medium transition shadow-lg">Book an Appointment</button>
+                                <button onclick="switchView('services')" class="border border-white/40 hover:bg-white/10 text-white px-8 py-3.5 rounded-full font-medium transition">Explore Treatments</button>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Introduction Section -->
+                <section class="py-20 bg-spa-champagne/30">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <span class="text-spa-gold font-semibold uppercase tracking-widest text-xs mb-2 block">Welcome to Saslo'Spa</span>
+                            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-spa-brown mb-6">A Sanctuary of Calm in Soweto</h2>
+                            <p class="text-spa-charcoal/80 mb-4 leading-relaxed">Located in Golfcourse View Crescent, Pimville Zone 5, Saslo'Spa & Beauty Studio is dedicated to elevating your wellness routine. We offer personalized spa treatments, exfoliating body scrubs, detoxifying wraps, and premium sauna therapies.</p>
+                            <p class="text-spa-charcoal/80 mb-6 leading-relaxed">Step away from the hustle and bustle of daily life and immerse yourself in absolute tranquility.</p>
+                            <div class="grid grid-cols-2 gap-6 pt-4 border-t border-spa-beige">
+                                <div><span class="block font-serif text-3xl font-bold text-spa-gold mb-1">5+</span> <span class="text-xs text-spa-charcoal/70 uppercase tracking-wider">Specialist Treatments</span></div>
+                                <div><span class="block font-serif text-3xl font-bold text-spa-gold mb-1">100%</span> <span class="text-xs text-spa-charcoal/70 uppercase tracking-wider">Relaxing Atmosphere</span></div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=600&q=80" alt="Spa ambiance" class="rounded-2xl shadow-md w-full h-64 object-cover">
+                            <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=600&q=80" alt="Sauna and Wellness" class="rounded-2xl shadow-md w-full h-64 object-cover mt-8">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Featured Treatments -->
+                <section class="py-20">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center max-w-xl mx-auto mb-16">
+                            <span class="text-spa-gold font-semibold uppercase tracking-widest text-xs mb-2 block">Curated Care</span>
+                            <h2 class="font-serif text-3xl font-bold text-spa-brown mb-4">Featured Treatments</h2>
+                            <p class="text-spa-charcoal/70 text-sm">Experience our most popular rejuvenating therapies tailored to refresh your body and mind.</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            ${services.map(s => `
+                                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-spa-beige/50 flex flex-col">
+                                    <div class="h-52 overflow-hidden relative">
+                                        <img src="${s.imageUrl}" alt="${s.name}" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                                        <span class="absolute top-4 right-4 bg-spa-brown/80 backdrop-blur-sm text-spa-gold px-3 py-1 rounded-full text-xs font-semibold">${s.category}</span>
+                                    </div>
+                                    <div class="p-6 flex-1 flex flex-col justify-between">
+                                        <div>
+                                            <div class="flex justify-between items-center mb-2">
+                                                <h3 class="font-serif font-bold text-lg text-spa-brown">${s.name}</h3>
+                                                <span class="text-spa-gold font-bold">R${s.priceZAR}</span>
+                                            </div>
+                                            <p class="text-sm text-spa-charcoal/70 mb-4 leading-relaxed">${s.description}</p>
+                                        </div>
+                                        <div class="pt-4 border-t border-spa-beige/50 flex items-center justify-between">
+                                            <span class="text-xs text-spa-charcoal/60"><i class="far fa-clock mr-1"></i> ${s.durationMin} mins</span>
+                                            <button onclick="startBookingWithService('${s.id}')" class="text-spa-brown hover:text-spa-gold font-semibold text-sm flex items-center gap-1 transition">Book Now <i class="fas fa-arrow-right text-xs"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="text-center mt-12">
+                            <button onclick="switchView('services')" class="inline-flex items-center gap-2 border border-spa-brown text-spa-brown hover:bg-spa-brown hover:text-white px-6 py-3 rounded-full text-sm font-medium transition">View All Services <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Location & Contact Banner -->
+                <section id="contact" class="py-20 bg-spa-brown text-spa-champagne">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <span class="text-spa-gold font-semibold uppercase tracking-widest text-xs mb-2 block">Visit Us in Soweto</span>
+                            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-6">Conveniently Located in Pimville</h2>
+                            <p class="text-spa-champagne/80 mb-6 leading-relaxed">Our tranquil studio is nestled in Golfcourse View Crescent, providing a private and peaceful retreat for all our clients.</p>
+                            <ul class="space-y-4 mb-8 text-sm">
+                                <li class="flex items-center gap-3"><i class="fas fa-map-marker-alt text-spa-gold text-lg"></i> <span>Golfcourse View Crescent, Pimville Zone 5, Soweto, 1809</span></li>
+                                <li class="flex items-center gap-3"><i class="fas fa-phone-alt text-spa-gold text-lg"></i> <span>+27 67 720 0502</span></li>
+                                <li class="flex items-center gap-3"><i class="fas fa-envelope text-spa-gold text-lg"></i> <span>info@saslospa.com</span></li>
+                            </ul>
+                            <button onclick="switchView('booking')" class="bg-spa-gold hover:bg-spa-gold-dark text-white px-8 py-3 rounded-full font-medium transition shadow-md">Schedule Your Visit</button>
+                        </div>
+                        <div class="bg-white/5 p-8 rounded-2xl border border-white/10">
+                            <h3 class="font-serif text-xl font-bold text-white mb-4">Frequently Asked Questions</h3>
+                            <div class="space-y-4 text-sm text-spa-champagne/90">
+                                <div>
+                                    <h4 class="font-semibold text-white mb-1"><i class="fas fa-question-circle text-spa-gold mr-2"></i> Do I need to book in advance?</h4>
+                                    <p class="text-xs text-spa-champagne/70 pl-6">Yes, advance booking is recommended to secure your preferred time slot and treatment room.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white mb-1"><i class="fas fa-question-circle text-spa-gold mr-2"></i> What are your operating days?</h4>
+                                    <p class="text-xs text-spa-champagne/70 pl-6">We are open Tuesday to Saturday from 09:00 to 17:00, and Sunday from 09:00 to 15:00. Mondays are closed.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white mb-1"><i class="fas fa-question-circle text-spa-gold mr-2"></i> How do I pay for my appointment?</h4>
+                                    <p class="text-xs text-spa-champagne/70 pl-6">You can pay securely at the studio upon arrival or via approved electronic payment channels.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `;
+        }
+
+        // 2. SERVICES PAGE
+        function renderServicesPage() {
+            const services = getServices();
+            return `
+                <div class="py-16 bg-spa-champagne/20 border-b border-spa-beige/60">
+                    <div class="max-w-7xl mx-auto px-4 text-center">
+                        <span class="text-spa-gold font-semibold uppercase tracking-widest text-xs mb-2 block">Our Catalogue</span>
+                        <h1 class="font-serif text-4xl font-bold text-spa-brown mb-4">Treatments & Services</h1>
+                        <p class="text-spa-charcoal/70 max-w-xl mx-auto text-sm">Browse our complete selection of beauty and wellness treatments designed to rejuvenate your body and mind.</p>
+                    </div>
+                </div>
+                <div class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        ${services.map(s => `
+                            <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-spa-beige/50 flex flex-col">
+                                <div class="h-52 overflow-hidden relative">
+                                    <img src="${s.imageUrl}" alt="${s.name}" class="w-full h-full object-cover">
+                                    <span class="absolute top-4 right-4 bg-spa-brown/80 backdrop-blur-sm text-spa-gold px-3 py-1 rounded-full text-xs font-semibold">${s.category}</span>
+                                </div>
+                                <div class="p-6 flex-1 flex flex-col justify-between">
+                                    <div>
+                                        <div class="flex justify-between items-center mb-2">
+                                            <h3 class="font-serif font-bold text-lg text-spa-brown">${s.name}</h3>
+                                            <span class="text-spa-gold font-bold text-lg">R${s.priceZAR}</span>
+                                        </div>
+                                        <p class="text-sm text-spa-charcoal/70 mb-4 leading-relaxed">${s.description}</p>
+                                    </div>
+                                    <div class="pt-4 border-t border-spa-beige/50 flex items-center justify-between">
+                                        <span class="text-xs text-spa-charcoal/60"><i class="far fa-clock mr-1"></i> ${s.durationMin} mins</span>
+                                        <button onclick="startBookingWithService('${s.id}')" class="bg-spa-brown hover:bg-spa-gold-dark text-white px-4 py-2 rounded-full text-xs font-medium transition">Book Treatment</button>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // 3. BOOKING WIZARD
+        function renderBookingWizard() {
+            const services = getServices();
+            return `
+                <div class="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="bg-white rounded-3xl shadow-lg border border-spa-beige p-8 sm:p-12">
+                        <div class="text-center mb-10">
+                            <span class="text-spa-gold font-semibold uppercase tracking-widest text-xs mb-2 block">Secure Appointment</span>
+                            <h1 class="font-serif text-3xl font-bold text-spa-brown mb-2">Book Your Spa Experience</h1>
+                            <p class="text-sm text-spa-charcoal/70">Complete the steps below to schedule your appointment at Saslo'Spa.</p>
+                        </div>
+
+                        <!-- Wizard Steps Indicator -->
+                        <div class="grid grid-cols-4 gap-2 mb-10 text-center text-xs font-semibold">
+                            <div id="step-ind-1" class="pb-2 border-b-2 border-spa-gold text-spa-brown">1. Service</div>
+                            <div id="step-ind-2" class="pb-2 border-b-2 border-spa-beige text-spa-charcoal/40">2. Date & Time</div>
+                            <div id="step-ind-3" class="pb-2 border-b-2 border-spa-beige text-spa-charcoal/40">3. Details</div>
+                            <div id="step-ind-4" class="pb-2 border-b-2 border-spa-beige text-spa-charcoal/40">4. Confirmation</div>
+                        </div>
+
+                        <!-- Step 1: Select Service -->
+                        <div id="wizard-step-1" class="wizard-step">
+                            <h3 class="font-serif font-bold text-xl text-spa-brown mb-6">Select a Treatment</h3>
+                            <div class="space-y-4 mb-8">
+                                ${services.map(s => `
+                                    <label class="flex items-center justify-between p-4 rounded-xl border border-spa-beige hover:border-spa-gold cursor-pointer transition ${bookingState.serviceId === s.id ? 'bg-spa-champagne/40 border-spa-gold ring-1 ring-spa-gold' : 'bg-white'}">
+                                        <div class="flex items-center gap-4">
+                                            <input type="radio" name="selectedService" value="${s.id}" ${bookingState.serviceId === s.id ? 'checked' : ''} onchange="bookingState.serviceId='${s.id}'" class="text-spa-gold focus:ring-spa-gold">
+                                            <div>
+                                                <span class="font-serif font-bold text-spa-brown block">${s.name}</span>
+                                                <span class="text-xs text-spa-charcoal/70"><i class="far fa-clock mr-1"></i> ${s.durationMin} mins &bull; ${s.category}</span>
+                                            </div>
+                                        </div>
+                                        <span class="font-bold text-spa-gold">R${s.priceZAR}</span>
+                                    </label>
+                                `).join('')}
+                            </div>
+                            <div class="flex justify-end">
+                                <button onclick="nextWizardStep(2)" class="bg-spa-brown hover:bg-spa-gold-dark text-white px-8 py-3 rounded-full text-sm font-medium transition">Continue to Date & Time</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Date & Time -->
+                        <div id="wizard-step-2" class="wizard-step hidden">
+                            <h3 class="font-serif font-bold text-xl text-spa-brown mb-6">Choose Appointment Date & Time</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                                <div>
+                                    <label class="block text-xs font-semibold text-spa-brown uppercase tracking-wider mb-2">Appointment Date</label>
+                                    <input type="date" id="booking-date" value="${bookingState.date}" onchange="bookingState.date=this.value" min="${new Date().toISOString().split('T')[0]}" class="w-full p-3 rounded-xl border border-spa-beige focus:border-spa-gold focus:outline-none text-sm">
+                                    <p class="text-[11px] text-spa-charcoal/60 mt-2"><i class="fas fa-info-circle text-spa-gold mr-1"></i> Note: Mondays are closed. Sundays operate from 09:00 to 15:00.</p>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-spa-brown uppercase tracking-wider mb-2">Preferred Time Slot</label>
+                                    <select id="booking-time" onchange="bookingState.time=this.value" class="w-full p-3 rounded-xl border border-spa-beige focus:border-spa-gold focus:outline-none text-sm bg-white">
+                                        <option value="">-- Select Time --</option>
+                                        <option value="09:00">09:00 AM</option>
+                                        <option value="10:30">10:30 AM</option>
+                                        <option value="12:00">12:00 PM</option>
+                                        <option value="13:30">01:30 PM</option>
+                                        <option value="15:00">03:00 PM</option>
+                                        <option value="16:00">04:00 PM (Tue-Sat only)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="flex justify-between">
+                                <button onclick="prevWizardStep(1)" class="border border-spa-brown text-spa-brown px-6 py-3 rounded-full text-sm font-medium transition">Back</button>
+                                <button onclick="nextWizardStep(3)" class="bg-spa-brown hover:bg-spa-gold-dark text-white px-8 py-3 rounded-full text-sm font-medium transition">Continue to Details</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Customer Details -->
+                        <div id="wizard-step-3" class="wizard-step hidden">
+                            <h3 class="font-serif font-bold text-xl text-spa-brown mb-6">Your Contact Information</h3>
+                            <div class="space-y-4 mb-8">
+                                <div>
+                                    <label class="block text-xs font-semibold text-spa-brown uppercase tracking-wider mb-2">Full Name</label>
+                                    <input type="text" id="cust-name" value="${bookingState.name}" oninput="bookingState.name=this.value" placeholder="e.g., Lerato Khumalo" class="w-full p-3 rounded-xl border border-spa-beige focus:border-spa-gold focus:outline-none text-sm">
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-spa-brown uppercase tracking-wider mb-2">Mobile Number</label>
+                                        <input type="tel" id="cust-phone" value="${bookingState.phone}" oninput="bookingState.phone=this.value" placeholder="e.g., 082 123 4567" class="w-full p-3 rounded-xl border border-spa-beige focus:border-spa-gold focus:outline-none text-sm">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-spa-brown uppercase tracking-wider mb-2">Email Address</label>
+                                        <input type="email" id="cust-email" value="${bookingState.email}" oninput="bookingState.email=this.value" placeholder="e.g., lerato@example.com" class="w-full p-3 rounded-xl border border-spa-beige focus:border-spa-gold focus:outline-none text-sm">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-spa-brown uppercase tracking-wider mb-2">Special Requests (Optional)</label>
+                                    <textarea id="cust-notes" oninput="bookingState.notes=this.value" placeholder="Any special preferences or health considerations..." class="w-full p-3 rounded-xl border border-spa-beige focus:border-spa-gold focus:outline-none text-sm h-24"></textarea>
+                                </div>
+                            </div>
+                            <div class="flex justify-between">
+                                <button onclick="prevWizardStep(2)" class="border border-spa-brown text-spa-brown px-6 py-3 rounded-full text-sm font-medium transition">Back</button>
+                                <button onclick="submitBooking()" class="bg-spa-gold hover:bg-spa-gold-dark text-white px-8 py-3 rounded-full text-sm font-medium transition shadow-md">Confirm Appointment Request</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Confirmation Success -->
+                        <div id="wizard-step-4" class="wizard-step hidden text-center py-8">
+                            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-6"><i class="fas fa-check"></i></div>
+                            <h3 class="font-serif text-3xl font-bold text-spa-brown mb-2">Appointment Request Received!</h3>
+                            <p class="text-sm text-spa-charcoal/70 mb-8 max-w-md mx-auto">Your booking request has been securely recorded. We look forward to welcoming you to Saslo'Spa.</p>
+                            
+                            <div id="confirmation-details" class="bg-spa-champagne/40 rounded-2xl p-6 text-left max-w-lg mx-auto mb-8 border border-spa-beige text-sm space-y-3">
+                                <!-- Injected dynamically -->
+                            </div>
+
+                            <div class="flex justify-center gap-4">
+                                <button onclick="window.print()" class="border border-spa-brown text-spa-brown px-6 py-3 rounded-full text-sm font-medium transition"><i class="fas fa-print mr-2"></i> Print Summary</button>
+                                <button onclick="switchView('home')" class="bg-spa-brown hover:bg-spa-gold-dark text-white px-8 py-3 rounded-full text-sm font-medium transition">Return to Home</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            `;
+        }
+
+        function startBookingWithService(serviceId) {
+            bookingState.serviceId = serviceId;
+            switchView('booking');
+        }
+
+        function nextWizardStep(step) {
+            if (step === 2 && !bookingState.serviceId) { alert('Please select a treatment service.'); return; }
+            if (step === 3 && (!bookingState.date || !bookingState.time)) { alert('Please select a valid date and time slot.'); return; }
+            
+            // Validate Monday closure
+            const dayOfWeek = new Date(bookingState.date).getDay();
+            if (dayOfWeek === 1) { alert('Saslo\'Spa is closed on Mondays. Please choose another date.'); return; }
+
+            document.querySelectorAll('.wizard-step').forEach(el => el.classList.add('hidden'));
+            document.getElementById(`wizard-step-${step}`).classList.remove('hidden');
+
+            for (let i = 1; i <= 4; i++) {
+                const ind = document.getElementById(`step-ind-${i}`);
+                if (i <= step) {
+                    ind.className = 'pb-2 border-b-2 border-spa-gold text-spa-brown font-semibold';
+                } else {
+                    ind.className = 'pb-2 border-b-2 border-spa-beige text-spa-charcoal/40';
+                }
+            }
+        }
+
+        function prevWizardStep(step) {
+            nextWizardStep(step);
+        }
+
+        function submitBooking() {
+            if (!bookingState.name || !bookingState.phone) { alert('Please provide your name and mobile number.'); return; }
+            const service = getServices().find(s => s.id === bookingState.serviceId);
+            const ref = 'SASLO-2026-' + Math.floor(1000 + Math.random() * 9000);
+            const token = 'tok-' + Math.random().toString(36).substring(7);
+
+            const newBooking = {
+                id: 'b-' + Date.now(),
+                reference: ref,
+                customerName: bookingState.name,
+                customerPhone: bookingState.phone,
+                customerEmail: bookingState.email || 'N/A',
+                serviceId: service.id,
+                serviceName: service.name,
+                bookingDate: bookingState.date,
+                startTime: bookingState.time,
+                endTime: 'TBD',
+                totalAmountZAR: service.priceZAR,
+                status: 'PENDING',
+                accessToken: token
+            };
+
+            const bookings = getBookings();
+            bookings.unshift(newBooking);
+            localStorage.setItem('saslo_bookings', JSON.stringify(bookings));
+
+            document.getElementById('confirmation-details').innerHTML = `
+                <div class="flex justify-between border-b border-spa-beige pb-2"><span class="text-spa-charcoal/70">Booking Reference:</span> <strong class="text-spa-brown font-mono">${ref}</strong></div>
+                <div class="flex justify-between border-b border-spa-beige pb-2"><span class="text-spa-charcoal/70">Client Name:</span> <strong class="text-spa-brown">${bookingState.name}</strong></div>
+                <div class="flex justify-between border-b border-spa-beige pb-2"><span class="text-spa-charcoal/70">Treatment:</span> <strong class="text-spa-brown">${service.name}</strong></div>
+                <div class="flex justify-between border-b border-spa-beige pb-2"><span class="text-spa-charcoal/70">Date & Time:</span> <strong class="text-spa-brown">${bookingState.date} at ${bookingState.time}</strong></div>
+                <div class="flex justify-between border-b border-spa-beige pb-2"><span class="text-spa-charcoal/70">Total Amount:</span> <strong class="text-spa-gold">R${service.priceZAR}</strong></div>
+                <div class="flex justify-between"><span class="text-spa-charcoal/70">Status:</span> <span class="bg-amber-100 text-amber-800 px-2 py-0.5 rounded text-xs font-semibold">Pending Confirmation</span></div>
+            `;
+
+            nextWizardStep(4);
+        }
+
+        // 4. BOOKING LOOKUP PAGE
+        function renderLookupPage() {
+            return `
+                <div class="py-16 max-w-2xl mx-auto px-4">
+                    <div class="bg-white rounded-3xl shadow-lg border border-spa-beige p-8 text-center">
+                        <span class="text-spa-gold font-semibold uppercase tracking-widest text-xs mb-2 block">Client Portal</span>
+                        <h1 class="font-serif text-3xl font-bold text-spa-brown mb-4">Lookup Your Booking</h1>
+                        <p class="text-sm text-spa-charcoal/70 mb-8">Enter your booking reference number or mobile phone number to check your appointment status.</p>
+                        
+                        <div class="flex gap-3 mb-6">
+                            <input type="text" id="lookup-query" placeholder="e.g., SASLO-2026-8841" class="flex-1 p-3 rounded-xl border border-spa-beige focus:border-spa-gold focus:outline-none text-sm uppercase">
+                            <button onclick="performLookup()" class="bg-spa-brown hover:bg-spa-gold-dark text-white px-6 py-3 rounded-xl text-sm font-medium transition">Search</button>
+                        </div>
+                        <div id="lookup-results" class="text-left"></div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function performLookup() {
+            const query = document.getElementById('lookup-query').value.trim().toUpperCase();
+            const resultsDiv = document.getElementById('lookup-results');
+            if (!query) { resultsDiv.innerHTML = '<p class="text-xs text-red-500">Please enter a reference number.</p>'; return; }
+
+            const bookings = getBookings();
+            const found = bookings.filter(b => b.reference.includes(query) || b.customerPhone.includes(query));
+
+            if (found.length === 0) {
+                resultsDiv.innerHTML = '<div class="p-4 bg-spa-champagne/40 rounded-xl text-sm text-spa-charcoal text-center">No appointments found matching your search.</div>';
+                return;
+            }
+
+            resultsDiv.innerHTML = found.map(b => `
+                <div class="p-5 rounded-2xl border border-spa-beige bg-spa-champagne/20 space-y-2 mb-4 text-sm">
+                    <div class="flex justify-between items-center"><span class="font-mono font-bold text-spa-brown">${b.reference}</span> <span class="px-2 py-0.5 rounded text-xs font-semibold ${b.status === 'CONFIRMED' ? 'bg-green-100 text-green-800' : 'bg-amber-100 text-amber-800'}">${b.status}</span></div>
+                    <div class="flex justify-between text-xs text-spa-charcoal/70"><span>Client: ${b.customerName}</span> <span>Phone: ${b.customerPhone}</span></div>
+                    <div class="font-medium text-spa-brown">${b.serviceName}</div>
+                    <div class="text-xs text-spa-charcoal/70"><i class="far fa-calendar mr-1"></i> ${b.bookingDate} at ${b.startTime} &bull; <strong class="text-spa-gold">R${b.totalAmountZAR}</strong></div>
+                </div>
+            `).join('');
+        }
+
+        // 5. SECURE ADMIN PORTAL
+        function renderAdminPortal() {
+            const bookings = getBookings();
+            const services = getServices();
+            const totalRevenue = bookings.filter(b => b.status === 'CONFIRMED' || b.status === 'COMPLETED').reduce((acc, curr) => acc + curr.totalAmountZAR, 0);
+            const pendingCount = bookings.filter(b => b.status === 'PENDING').length;
+
+            return `
+                <div class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+                        <div>
+                            <span class="text-spa-gold font-semibold uppercase tracking-widest text-xs mb-1 block">Management Dashboard</span>
+                            <h1 class="font-serif text-3xl font-bold text-spa-brown">Saslo'Spa Administration</h1>
+                        </div>
+                        <div class="flex gap-3">
+                            <button onclick="switchView('home')" class="border border-spa-brown text-spa-brown px-4 py-2 rounded-xl text-xs font-medium hover:bg-spa-brown hover:text-white transition">Exit to Website</button>
+                        </div>
+                    </div>
+
+                    <!-- Metrics Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+                        <div class="bg-white p-6 rounded-2xl border border-spa-beige shadow-sm">
+                            <span class="text-xs text-spa-charcoal/60 uppercase tracking-wider block mb-1">Total Bookings</span>
+                            <span class="font-serif text-3xl font-bold text-spa-brown">${bookings.length}</span>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl border border-spa-beige shadow-sm">
+                            <span class="text-xs text-spa-charcoal/60 uppercase tracking-wider block mb-1">Pending Approvals</span>
+                            <span class="font-serif text-3xl font-bold text-amber-600">${pendingCount}</span>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl border border-spa-beige shadow-sm">
+                            <span class="text-xs text-spa-charcoal/60 uppercase tracking-wider block mb-1">Active Services</span>
+                            <span class="font-serif text-3xl font-bold text-spa-brown">${services.length}</span>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl border border-spa-beige shadow-sm">
+                            <span class="text-xs text-spa-charcoal/60 uppercase tracking-wider block mb-1">Estimated Revenue</span>
+                            <span class="font-serif text-3xl font-bold text-spa-gold">R${totalRevenue}</span>
+                        </div>
+                    </div>
+
+                    <!-- Appointment Management Table -->
+                    <div class="bg-white rounded-3xl shadow-sm border border-spa-beige p-6 mb-10 overflow-hidden">
+                        <h3 class="font-serif font-bold text-xl text-spa-brown mb-6">Recent Appointment Requests</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-sm">
+                                <thead class="bg-spa-champagne/40 text-spa-brown uppercase text-[11px] tracking-wider">
+                                    <tr>
+                                        <th class="p-4">Reference</th>
+                                        <th class="p-4">Client</th>
+                                        <th class="p-4">Service</th>
+                                        <th class="p-4">Date & Time</th>
+                                        <th class="p-4">Amount</th>
+                                        <th class="p-4">Status</th>
+                                        <th class="p-4">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-spa-beige/50">
+                                    ${bookings.map(b => `
+                                        <tr>
+                                            <td class="p-4 font-mono font-bold text-xs text-spa-brown">${b.reference}</td>
+                                            <td class="p-4 font-medium">${b.customerName}<br><span class="text-xs text-spa-charcoal/60">${b.customerPhone}</span></td>
+                                            <td class="p-4">${b.serviceName}</td>
+                                            <td class="p-4 text-xs">${b.bookingDate}<br>${b.startTime}</td>
+                                            <td class="p-4 font-bold text-spa-gold">R${b.totalAmountZAR}</td>
+                                            <td class="p-4"><span class="px-2.5 py-1 rounded-full text-xs font-semibold ${b.status === 'CONFIRMED' ? 'bg-green-100 text-green-800' : b.status === 'CANCELLED' ? 'bg-red-100 text-red-800' : 'bg-amber-100 text-amber-800'}">${b.status}</span></td>
+                                            <td class="p-4 flex gap-2">
+                                                ${b.status === 'PENDING' ? `<button onclick="updateBookingStatus('${b.id}', 'CONFIRMED')" class="bg-green-600 text-white px-3 py-1 rounded text-xs hover:bg-green-700 transition">Confirm</button>` : ''}
+                                                <button onclick="updateBookingStatus('${b.id}', 'CANCELLED')" class="bg-red-600 text-white px-3 py-1 rounded text-xs hover:bg-red-700 transition">Cancel</button>
+                                            </td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Service Management Section -->
+                    <div class="bg-white rounded-3xl shadow-sm border border-spa-beige p-6">
+                        <h3 class="font-serif font-bold text-xl text-spa-brown mb-6">Service Catalogue Manager</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            ${services.map(s => `
+                                <div class="p-4 rounded-2xl border border-spa-beige bg-spa-champagne/20 flex flex-col justify-between">
+                                    <div>
+                                        <div class="flex justify-between items-center mb-1">
+                                            <h4 class="font-serif font-bold text-spa-brown">${s.name}</h4>
+                                            <span class="text-spa-gold font-bold">R${s.priceZAR}</span>
+                                        </div>
+                                        <p class="text-xs text-spa-charcoal/70 mb-3">${s.description}</p>
+                                    </div>
+                                    <div class="text-xs text-spa-charcoal/60"><i class="far fa-clock mr-1"></i> ${s.durationMin} mins &bull; ${s.category}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function updateBookingStatus(id, newStatus) {
+            const bookings = getBookings();
+            const target = bookings.find(b => b.id === id);
+            if (target) {
+                target.status = newStatus;
+                localStorage.setItem('saslo_bookings', JSON.stringify(bookings));
+                render();
+            }
+        }
+
+        // Initialize App on Load
+        window.onload = function() {
+            render();
+        };
+    </script>
+</body>
+</html>
